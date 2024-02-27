@@ -1,18 +1,59 @@
-const arr1: number []= [1,2,3,4,5]
-const arr2: Array<string> = ["abc","def","ghi"]
-const arr: Array<string> = new Array(20)
-const arr4: Array<string | number> = [230,451,"Hello"]
-const tup: [number,number,number] = [24,45.2,23]
+//use interface whenever you want to create class or object
+// interface can be extended
 
+interface Obj{
+    height: number,
+    weight: number,
+    gender?: boolean,    // ? is used to make the property optional
+}
 
+type FuncType = (n: number, m: number) => void
 
+interface newObj extends Obj{
+scholar: boolean,
+// func?: (n:number, m:number) => void
+func: FuncType     // we have used types in interface here
+}
 
-// type UserName = string | number;  // defining types, Type Aliases
-// let a:UserName = "hello"
+const gg: newObj ={
+    height: 123,
+    weight:34,
+    scholar: false,
+    func: (n,m) =>{
+        console.log(n*m)
+    }
+}
 
-// type UserName = (n:string, m:string) => string
+const npc: newObj = {
+    height: 160,
+    weight: 48,
+    scholar: true,
+    func: (n,m) =>{
+        console.log(n*m)
+    }
+}
 
-// const func: UserName = (n,m) => {  // here we have declared that a number will be returned from this function now we cannot return string or void
-//     console.log(n,m)
-//     return n + m
+npc.func(5,30)
+
+// type Obj = {
+//     height: number,
+//     weight: number,
+//     gender?: boolean,    // ? is used to make the property optional
 // }
+
+const obj: Obj = {
+    height: 125,
+    weight: 40,
+    gender: true
+}
+
+const obj2: Obj = {
+    height: 145,
+    weight: 50,
+    gender:false
+}
+
+const obj3: Obj = {
+    height: 135, 
+    weight: 48
+}
